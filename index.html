@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nusay'Humanity</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif;}
+    body { background-color:#ffffff; color:#333; line-height:1.6;}
+    a { text-decoration:none; color:inherit; }
+
+    /* Header & Navbar */
+    header { position:sticky; top:0; background:#fff; box-shadow:0 2px 8px rgba(0,0,0,0.1); z-index:1000;}
+    .navbar { display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem;}
+    .logo { font-size:1.8rem; font-weight:bold; color:#2b7a78;}
+    nav ul { list-style:none; display:flex; gap:1.5rem;}
+    nav ul li { position:relative;}
+    nav a { font-weight:500; transition:color 0.3s;}
+    nav a:hover { color:#3aafa9; }
+
+    /* Dropdown */
+    nav ul li ul { display:none; position:absolute; top:100%; left:0; background:#fff; box-shadow:0 2px 6px rgba(0,0,0,0.1); border-radius:6px; min-width:180px; padding:0.5rem 0;}
+    nav ul li:hover ul { display:block;}
+    nav ul li ul li { padding:0.5rem 1rem; }
+    nav ul li ul li a:hover { background-color:#f0f0f0; border-radius:4px; }
+
+    /* Hamburger Menu */
+    .hamburger { display:none; flex-direction:column; cursor:pointer; gap:5px;}
+    .hamburger div { width:25px; height:3px; background-color:#2b7a78;}
+    @media (max-width:768px){
+      nav ul { position:fixed; top:70px; right:-100%; flex-direction:column; background:#fff; width:200px; padding:1rem; gap:1rem; transition:right 0.3s; box-shadow:-2px 0 8px rgba(0,0,0,0.1);}
+      nav ul.show { right:0; }
+      .hamburger { display:flex; }
+    }
+
+    /* User icon */
+    #user-icon { display:flex; align-items:center; gap:5px; cursor:pointer; }
+    #user-icon img { width:35px; height:35px; border-radius:50%; }
+
+    /* Hero Section */
+    .hero { text-align:center; padding:4rem 2rem; background:#f0f8f8; }
+    .hero h1 { font-size:2.8rem; color:#2b7a78; margin-bottom:1rem; }
+    .hero p { max-width:700px; margin:0 auto 1rem; font-size:1.1rem; }
+
+    /* Actions Section */
+    .actions { padding:4rem 2rem; text-align:center; }
+    .actions h2 { color:#2b7a78; font-size:2rem; margin-bottom:2rem; }
+    .action-cards { display:flex; gap:2rem; flex-wrap:wrap; justify-content:center; }
+    .card { background:#fff; box-shadow:0 2px 10px rgba(0,0,0,0.1); border-radius:10px; width:250px; padding:1.5rem; transition:transform 0.3s; }
+    .card:hover { transform:translateY(-5px); }
+    .card h3 { color:#3aafa9; margin-bottom:1rem; }
+    .card p { font-size:0.95rem; }
+
+    /* Contact Section */
+    .contact { background:#f0f8f8; padding:4rem 2rem; text-align:center; }
+    .contact h2 { color:#2b7a78; font-size:2rem; margin-bottom:2rem; }
+    .contact form { max-width:500px; margin:0 auto; display:flex; flex-direction:column; gap:1rem; }
+    .contact input, .contact textarea { padding:0.8rem; border-radius:6px; border:1px solid #ccc; font-size:1rem; }
+    .contact button { padding:0.8rem; background-color:#2b7a78; color:#fff; border:none; border-radius:6px; font-size:1rem; cursor:pointer; transition:background-color 0.3s; }
+    .contact button:hover { background-color:#3aafa9; }
+
+    /* Footer */
+    footer { text-align:center; padding:1.5rem; background:#f7f7f7; color:#777; }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="navbar">
+      <div class="logo">Nusay'Humanity</div>
+      <nav>
+        <div class="hamburger" onclick="toggleMenu()"><div></div><div></div><div></div></div>
+        <ul id="nav-menu">
+          <li><a href="#hero">Accueil</a></li>
+          <li>
+            <a href="#">Nos actions ▾</a>
+            <ul>
+              <li><a href="#action1">Aide humanitaire</a></li>
+              <li><a href="#action2">Éducation</a></li>
+              <li><a href="#action3">Santé</a></li>
+            </ul>
+          </li>
+          <li><a href="#contact">Contacts</a></li>
+          <li><a href="#espace">Espace personnel</a></li>
+        </ul>
+      </nav>
+      <div id="user-icon" style="display:none;">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Compte">
+        <span id="user-name" style="color:#2b7a78; font-weight:bold;"></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <h1>Bienvenue chez Nusay'Humanity</h1>
+    <p>Nous sommes une association humanitaire dédiée à la solidarité et à l’entraide.</p>
+    <p>Rejoignez-nous et contribuez à créer un monde meilleur.</p>
+  </section>
+
+  <!-- ACTIONS -->
+  <section class="actions" id="actions">
+    <h2>Nos Actions</h2>
+    <div class="action-cards">
+      <div class="card" id="action1"><h3>Aide humanitaire</h3><p>Distribution de nourriture, vêtements et matériel essentiel aux populations vulnérables.</p></div>
+      <div class="card" id="action2"><h3>Éducation</h3><p>Programmes éducatifs pour enfants et adultes afin de favoriser l’apprentissage et le développement.</p></div>
+      <div class="card" id="action3"><h3>Santé</h3><p>Organisation de campagnes médicales et soutien aux infrastructures de santé locales.</p></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <h2>Contactez-nous</h2>
+    <form onsubmit="submitForm(event)">
+      <input type="text" name="name" placeholder="Votre nom" required>
+      <input type="email" name="email" placeholder="Votre email" required>
+      <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+  </section>
+
+  <!-- ESPACE PERSONNEL -->
+  <section class="contact" id="espace">
+    <h2>Espace Personnel</h2>
+
+    <!-- Formulaire Création de compte -->
+    <form id="signup-form">
+      <h3>Créer un compte</h3>
+      <input type="text" id="signup-username" placeholder="Nom d'utilisateur" required>
+      <input type="password" id="signup-password" placeholder="Mot de passe" required>
+      <button type="submit">Créer un compte</button>
+    </form>
+
+    <hr style="margin:2rem 0;">
+
+    <!-- Formulaire Connexion -->
+    <form id="login-form">
+      <h3>Connexion</h3>
+      <input type="text" id="login-username" placeholder="Nom d'utilisateur" required>
+      <input type="password" id="login-password" placeholder="Mot de passe" required>
+      <button type="submit">Se connecter</button>
+    </form>
+
+    <!-- Tableau de bord -->
+    <div id="dashboard" style="display:none; margin-top:2rem;">
+      <h3>Bienvenue, <span id="user-display"></span> !</h3>
+      <p>Vous êtes maintenant connecté à votre espace personnel.</p>
+      <button onclick="logout()" style="padding:0.8rem; background-color:#2b7a78; color:#fff; border:none; border-radius:6px; cursor:pointer;">Déconnexion</button>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Nusay'Humanity — Tous droits réservés.
+  </footer>
+
+  <script>
+    // Hamburger menu
+    function toggleMenu() { document
